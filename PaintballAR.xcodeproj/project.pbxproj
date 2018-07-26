@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6813F91B210A6A4100024F70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F91A210A6A4100024F70 /* AppDelegate.swift */; };
+		6813F91D210A6A4100024F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F91C210A6A4100024F70 /* ViewController.swift */; };
+		6813F920210A6A4100024F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6813F91E210A6A4100024F70 /* Main.storyboard */; };
+		6813F922210A6A4100024F70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6813F921210A6A4100024F70 /* Assets.xcassets */; };
+		6813F925210A6A4100024F70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6813F923210A6A4100024F70 /* LaunchScreen.storyboard */; };
+		6813F930210A6A4100024F70 /* PaintballARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F92F210A6A4100024F70 /* PaintballARTests.swift */; };
+		6813F93B210A6A4100024F70 /* PaintballARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F93A210A6A4100024F70 /* PaintballARUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6813F92C210A6A4100024F70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6813F90F210A6A4100024F70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6813F916210A6A4100024F70;
+			remoteInfo = PaintballAR;
+		};
+		6813F937210A6A4100024F70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6813F90F210A6A4100024F70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6813F916210A6A4100024F70;
+			remoteInfo = PaintballAR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6813F917210A6A4100024F70 /* PaintballAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaintballAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6813F91A210A6A4100024F70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6813F91C210A6A4100024F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6813F91F210A6A4100024F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6813F921210A6A4100024F70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6813F924210A6A4100024F70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6813F926210A6A4100024F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6813F92B210A6A4100024F70 /* PaintballARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintballARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6813F92F210A6A4100024F70 /* PaintballARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballARTests.swift; sourceTree = "<group>"; };
+		6813F931210A6A4100024F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6813F936210A6A4100024F70 /* PaintballARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintballARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6813F93A210A6A4100024F70 /* PaintballARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballARUITests.swift; sourceTree = "<group>"; };
+		6813F93C210A6A4100024F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6813F914210A6A4100024F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F928210A6A4100024F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F933210A6A4100024F70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6813F90E210A6A4100024F70 = {
+			isa = PBXGroup;
+			children = (
+				6813F919210A6A4100024F70 /* PaintballAR */,
+				6813F92E210A6A4100024F70 /* PaintballARTests */,
+				6813F939210A6A4100024F70 /* PaintballARUITests */,
+				6813F918210A6A4100024F70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6813F918210A6A4100024F70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6813F917210A6A4100024F70 /* PaintballAR.app */,
+				6813F92B210A6A4100024F70 /* PaintballARTests.xctest */,
+				6813F936210A6A4100024F70 /* PaintballARUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6813F919210A6A4100024F70 /* PaintballAR */ = {
+			isa = PBXGroup;
+			children = (
+				6813F91A210A6A4100024F70 /* AppDelegate.swift */,
+				6813F91C210A6A4100024F70 /* ViewController.swift */,
+				6813F91E210A6A4100024F70 /* Main.storyboard */,
+				6813F921210A6A4100024F70 /* Assets.xcassets */,
+				6813F923210A6A4100024F70 /* LaunchScreen.storyboard */,
+				6813F926210A6A4100024F70 /* Info.plist */,
+			);
+			path = PaintballAR;
+			sourceTree = "<group>";
+		};
+		6813F92E210A6A4100024F70 /* PaintballARTests */ = {
+			isa = PBXGroup;
+			children = (
+				6813F92F210A6A4100024F70 /* PaintballARTests.swift */,
+				6813F931210A6A4100024F70 /* Info.plist */,
+			);
+			path = PaintballARTests;
+			sourceTree = "<group>";
+		};
+		6813F939210A6A4100024F70 /* PaintballARUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6813F93A210A6A4100024F70 /* PaintballARUITests.swift */,
+				6813F93C210A6A4100024F70 /* Info.plist */,
+			);
+			path = PaintballARUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6813F916210A6A4100024F70 /* PaintballAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6813F93F210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballAR" */;
+			buildPhases = (
+				6813F913210A6A4100024F70 /* Sources */,
+				6813F914210A6A4100024F70 /* Frameworks */,
+				6813F915210A6A4100024F70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaintballAR;
+			productName = PaintballAR;
+			productReference = 6813F917210A6A4100024F70 /* PaintballAR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6813F92A210A6A4100024F70 /* PaintballARTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6813F942210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballARTests" */;
+			buildPhases = (
+				6813F927210A6A4100024F70 /* Sources */,
+				6813F928210A6A4100024F70 /* Frameworks */,
+				6813F929210A6A4100024F70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6813F92D210A6A4100024F70 /* PBXTargetDependency */,
+			);
+			name = PaintballARTests;
+			productName = PaintballARTests;
+			productReference = 6813F92B210A6A4100024F70 /* PaintballARTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6813F935210A6A4100024F70 /* PaintballARUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6813F945210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballARUITests" */;
+			buildPhases = (
+				6813F932210A6A4100024F70 /* Sources */,
+				6813F933210A6A4100024F70 /* Frameworks */,
+				6813F934210A6A4100024F70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6813F938210A6A4100024F70 /* PBXTargetDependency */,
+			);
+			name = PaintballARUITests;
+			productName = PaintballARUITests;
+			productReference = 6813F936210A6A4100024F70 /* PaintballARUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6813F90F210A6A4100024F70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "g89 Group Project";
+				TargetAttributes = {
+					6813F916210A6A4100024F70 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					6813F92A210A6A4100024F70 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 6813F916210A6A4100024F70;
+					};
+					6813F935210A6A4100024F70 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 6813F916210A6A4100024F70;
+					};
+				};
+			};
+			buildConfigurationList = 6813F912210A6A4100024F70 /* Build configuration list for PBXProject "PaintballAR" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6813F90E210A6A4100024F70;
+			productRefGroup = 6813F918210A6A4100024F70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6813F916210A6A4100024F70 /* PaintballAR */,
+				6813F92A210A6A4100024F70 /* PaintballARTests */,
+				6813F935210A6A4100024F70 /* PaintballARUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6813F915210A6A4100024F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6813F925210A6A4100024F70 /* LaunchScreen.storyboard in Resources */,
+				6813F922210A6A4100024F70 /* Assets.xcassets in Resources */,
+				6813F920210A6A4100024F70 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F929210A6A4100024F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F934210A6A4100024F70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6813F913210A6A4100024F70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6813F91D210A6A4100024F70 /* ViewController.swift in Sources */,
+				6813F91B210A6A4100024F70 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F927210A6A4100024F70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6813F930210A6A4100024F70 /* PaintballARTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6813F932210A6A4100024F70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6813F93B210A6A4100024F70 /* PaintballARUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6813F92D210A6A4100024F70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6813F916210A6A4100024F70 /* PaintballAR */;
+			targetProxy = 6813F92C210A6A4100024F70 /* PBXContainerItemProxy */;
+		};
+		6813F938210A6A4100024F70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6813F916210A6A4100024F70 /* PaintballAR */;
+			targetProxy = 6813F937210A6A4100024F70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6813F91E210A6A4100024F70 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6813F91F210A6A4100024F70 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6813F923210A6A4100024F70 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6813F924210A6A4100024F70 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6813F93D210A6A4100024F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6813F93E210A6A4100024F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6813F940210A6A4100024F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6813F941210A6A4100024F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballAR/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballAR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6813F943210A6A4100024F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballARTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaintballAR.app/PaintballAR";
+			};
+			name = Debug;
+		};
+		6813F944210A6A4100024F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballARTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballARTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PaintballAR.app/PaintballAR";
+			};
+			name = Release;
+		};
+		6813F946210A6A4100024F70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballARUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PaintballAR;
+			};
+			name = Debug;
+		};
+		6813F947210A6A4100024F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
+				INFOPLIST_FILE = PaintballARUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.g89groupproject.PaintballARUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PaintballAR;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6813F912210A6A4100024F70 /* Build configuration list for PBXProject "PaintballAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6813F93D210A6A4100024F70 /* Debug */,
+				6813F93E210A6A4100024F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6813F93F210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6813F940210A6A4100024F70 /* Debug */,
+				6813F941210A6A4100024F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6813F942210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballARTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6813F943210A6A4100024F70 /* Debug */,
+				6813F944210A6A4100024F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6813F945210A6A4100024F70 /* Build configuration list for PBXNativeTarget "PaintballARUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6813F946210A6A4100024F70 /* Debug */,
+				6813F947210A6A4100024F70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6813F90F210A6A4100024F70 /* Project object */;
+}
