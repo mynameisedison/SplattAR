@@ -14,6 +14,8 @@
 		6813F925210A6A4100024F70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6813F923210A6A4100024F70 /* LaunchScreen.storyboard */; };
 		6813F930210A6A4100024F70 /* PaintballARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F92F210A6A4100024F70 /* PaintballARTests.swift */; };
 		6813F93B210A6A4100024F70 /* PaintballARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F93A210A6A4100024F70 /* PaintballARUITests.swift */; };
+		68FF6300210A6C6A00AC81C5 /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = 68FF62FF210A6C6900AC81C5 /* README.MD */; };
+		68FF6302210A6C7C00AC81C5 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 68FF6301210A6C7C00AC81C5 /* images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		6813F936210A6A4100024F70 /* PaintballARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintballARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6813F93A210A6A4100024F70 /* PaintballARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintballARUITests.swift; sourceTree = "<group>"; };
 		6813F93C210A6A4100024F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68FF62FF210A6C6900AC81C5 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
+		68FF6301210A6C7C00AC81C5 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		6813F90E210A6A4100024F70 = {
 			isa = PBXGroup;
 			children = (
+				68FF6301210A6C7C00AC81C5 /* images */,
+				68FF62FF210A6C6900AC81C5 /* README.MD */,
 				6813F919210A6A4100024F70 /* PaintballAR */,
 				6813F92E210A6A4100024F70 /* PaintballARTests */,
 				6813F939210A6A4100024F70 /* PaintballARUITests */,
@@ -229,8 +235,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FF6302210A6C7C00AC81C5 /* images in Resources */,
 				6813F925210A6A4100024F70 /* LaunchScreen.storyboard in Resources */,
 				6813F922210A6A4100024F70 /* Assets.xcassets in Resources */,
+				68FF6300210A6C6A00AC81C5 /* README.MD in Resources */,
 				6813F920210A6A4100024F70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
