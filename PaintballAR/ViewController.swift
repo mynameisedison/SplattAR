@@ -25,15 +25,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let pointOfView = self.sceneView.pointOfView else {return}
-        self.power = 40
+        self.power = 50
         let transform = pointOfView.transform
         let location = SCNVector3(transform.m41, transform.m42, transform.m43)
         let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33)
         let position = location + orientation
         let ball = SCNNode.init(geometry: SCNSphere(radius: 0.05))
-        ball.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        ball.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+        ball.geometry?.firstMaterial?.specular.contents = UIColor.yellow
         ball.position = position
         let body = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(node: ball))
+        body.isAffectedByGravity = false
         ball.physicsBody = body
         ball.physicsBody?.applyForce(SCNVector3(orientation.x*power, orientation.y*power, orientation.z*power), asImpulse: true)
         self.sceneView.scene.rootNode.addChildNode(ball)
@@ -45,7 +47,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func createPlane(planeAnchor: ARPlaneAnchor) -> SCNNode {
         let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
-        planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "lava")
+        planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "grid")
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
         planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
         planeNode.eulerAngles = SCNVector3(90.degreesToRadians, 0, 0)
