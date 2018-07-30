@@ -21,6 +21,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     let configuration = ARWorldTrackingConfiguration()
     var power: Float = 1.0
+    var Target: SCNNode?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
@@ -57,8 +58,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     func createPlane(planeAnchor: ARPlaneAnchor) -> SCNNode {
         let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z), length: 0.01, chamferRadius: 0)
         let planeNode = SCNNode(geometry: plane)
-
-//        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
         planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "grid")
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
         planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
@@ -95,7 +94,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        print("came into contact")
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
+        if nodeA.physicsBody?.categoryBitMask == BitMaskCategory.target.rawValue {
+            self.Target = nodeA
+        } else if nodeB.physicsBody?.contactTestBitMask == BitMaskCategory.target.rawValue {
+            self.Target = nodeB
+        }
+        let splat = SCNNode(geometry: SCNPlane(width: 0.5, height: 0.5))
+        splat.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "paint-splatter-1")
+        splat.position = contact.contactPoint
+        self.sceneView.scene.rootNode.addChildNode(splat)
     }
 }
 
