@@ -9,7 +9,13 @@
 import UIKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+enum BitMaskCategory: Int {
+    case bullet = 2
+    case target = 3
+    
+}
+
+class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     
@@ -21,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.configuration.planeDetection = [.horizontal, .vertical]
         self.sceneView.session.run(configuration)
         self.sceneView.delegate = self
+        self.sceneView.scene.physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,6 +45,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         body.isAffectedByGravity = false
         ball.physicsBody = body
         ball.physicsBody?.applyForce(SCNVector3(orientation.x*power, orientation.y*power, orientation.z*power), asImpulse: true)
+        ball.physicsBody?.categoryBitMask = BitMaskCategory.bullet.rawValue
+        ball.physicsBody?.contactTestBitMask = BitMaskCategory.target.rawValue
         self.sceneView.scene.rootNode.addChildNode(ball)
     }
     
@@ -46,11 +55,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func createPlane(planeAnchor: ARPlaneAnchor) -> SCNNode {
-        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
+        let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z), length: 0.01, chamferRadius: 0)
+        let planeNode = SCNNode(geometry: plane)
+
+//        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
         planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "grid")
         planeNode.geometry?.firstMaterial?.isDoubleSided = true
         planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
+        planeNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(node: planeNode, options: nil))
         planeNode.eulerAngles = SCNVector3(90.degreesToRadians, 0, 0)
+        planeNode.physicsBody?.categoryBitMask = BitMaskCategory.target.rawValue
+        planeNode.physicsBody?.contactTestBitMask =  BitMaskCategory.bullet.rawValue
         return planeNode
     }
     
@@ -78,8 +93,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
     }
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        print("came into contact")
+    }
 }
 
+
+//////
 func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
     return SCNVector3Make(left.x + right.x, left.y + right.y, left.z + right.z)
 }
