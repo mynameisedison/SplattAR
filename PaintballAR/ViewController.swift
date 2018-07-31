@@ -9,13 +9,19 @@
 import UIKit
 import ARKit
 import SceneKit
+import AVFoundation
 
 class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
+    
 
     @IBOutlet weak var sceneView: ARSCNView!
     
+    var audioPlayer = AVAudioPlayer()
+
     let sceneManager = ARSceneManager()
-    let randomSplat = [#imageLiteral(resourceName: "blue-splat-6"), #imageLiteral(resourceName: "green-splat-14"), #imageLiteral(resourceName: "pink-splat-9"), #imageLiteral(resourceName: "red-splat-1")]
+    let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)")]
+//    let audio = ["squish-1", "smash"]
+//    let randomAudio = Int(arc4random_uniform(2))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +33,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
         view.addGestureRecognizer(tapGesture)
+        
+        do {
+            if let fileURL = Bundle.main.path(forResource: "squish-1", ofType: "wav") {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
+            } else {
+                print("No file with specified name exists")
+            }
+        } catch let error {
+            print("Can't play the audio file failed with an error \(error.localizedDescription)")
+        }
     }
     
     @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
@@ -53,10 +69,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         position(node: box, atHit: hit)
         
         sceneView?.scene.rootNode.addChildNode(box)
+        audioPlayer.play()
     }
     
     private func createBox() -> SCNNode {
-        let box = SCNBox(width: 0.15, height: 0.20, length: 0.02, chamferRadius: 0.02)
+        let box = SCNBox(width: 0.15, height: 0.20, length: 0.002, chamferRadius: 0.02)
         let boxNode = SCNNode(geometry: box)
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))
