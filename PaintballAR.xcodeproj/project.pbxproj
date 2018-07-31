@@ -10,6 +10,8 @@
 		46F2EDAD2110D24600DC8FB0 /* ARSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2EDAC2110D24600DC8FB0 /* ARSceneManager.swift */; };
 		46F2EDAF2110D27B00DC8FB0 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2EDAE2110D27B00DC8FB0 /* Plane.swift */; };
 		46F2EDB12110D29900DC8FB0 /* GridMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2EDB02110D29900DC8FB0 /* GridMaterial.swift */; };
+		46F2EDB92110EED100DC8FB0 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2EDB82110EED100DC8FB0 /* AudioPlayer.swift */; };
+		46F2EDBB2110EF1400DC8FB0 /* squish-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46F2EDBA2110EF1400DC8FB0 /* squish-1.wav */; };
 		6813F91B210A6A4100024F70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F91A210A6A4100024F70 /* AppDelegate.swift */; };
 		6813F91D210A6A4100024F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6813F91C210A6A4100024F70 /* ViewController.swift */; };
 		6813F920210A6A4100024F70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6813F91E210A6A4100024F70 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		46F2EDAC2110D24600DC8FB0 /* ARSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneManager.swift; sourceTree = "<group>"; };
 		46F2EDAE2110D27B00DC8FB0 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		46F2EDB02110D29900DC8FB0 /* GridMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMaterial.swift; sourceTree = "<group>"; };
+		46F2EDB82110EED100DC8FB0 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		46F2EDBA2110EF1400DC8FB0 /* squish-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "squish-1.wav"; sourceTree = "<group>"; };
 		6813F917210A6A4100024F70 /* PaintballAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaintballAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6813F91A210A6A4100024F70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6813F91C210A6A4100024F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		6813F919210A6A4100024F70 /* PaintballAR */ = {
 			isa = PBXGroup;
 			children = (
+				46F2EDBA2110EF1400DC8FB0 /* squish-1.wav */,
 				6813F91A210A6A4100024F70 /* AppDelegate.swift */,
 				6813F91C210A6A4100024F70 /* ViewController.swift */,
 				6813F91E210A6A4100024F70 /* Main.storyboard */,
@@ -118,6 +123,7 @@
 				46F2EDAC2110D24600DC8FB0 /* ARSceneManager.swift */,
 				46F2EDAE2110D27B00DC8FB0 /* Plane.swift */,
 				46F2EDB02110D29900DC8FB0 /* GridMaterial.swift */,
+				46F2EDB82110EED100DC8FB0 /* AudioPlayer.swift */,
 			);
 			path = PaintballAR;
 			sourceTree = "<group>";
@@ -247,6 +253,7 @@
 				68FF6302210A6C7C00AC81C5 /* images in Resources */,
 				6813F925210A6A4100024F70 /* LaunchScreen.storyboard in Resources */,
 				6813F922210A6A4100024F70 /* Assets.xcassets in Resources */,
+				46F2EDBB2110EF1400DC8FB0 /* squish-1.wav in Resources */,
 				68FF6300210A6C6A00AC81C5 /* README.MD in Resources */,
 				6813F920210A6A4100024F70 /* Main.storyboard in Resources */,
 			);
@@ -278,6 +285,7 @@
 				6813F91D210A6A4100024F70 /* ViewController.swift in Sources */,
 				46F2EDAF2110D27B00DC8FB0 /* Plane.swift in Sources */,
 				6813F91B210A6A4100024F70 /* AppDelegate.swift in Sources */,
+				46F2EDB92110EED100DC8FB0 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
