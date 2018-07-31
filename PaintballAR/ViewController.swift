@@ -8,106 +8,129 @@
 
 import UIKit
 import ARKit
-
-enum BitMaskCategory: Int {
-    case bullet = 2
-    case target = 3
-    
-}
+import SceneKit
 
 class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     
-    let configuration = ARWorldTrackingConfiguration()
-    var power: Float = 1.0
+    let sceneManager = ARSceneManager()
+    let randomSplat = [#imageLiteral(resourceName: "blue-splat-6"), #imageLiteral(resourceName: "green-splat-14"), #imageLiteral(resourceName: "pink-splat-9"), #imageLiteral(resourceName: "red-splat-1")]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
-        self.configuration.planeDetection = [.horizontal, .vertical]
-        self.sceneView.session.run(configuration)
-        self.sceneView.delegate = self
-        self.sceneView.scene.physicsWorld.contactDelegate = self
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let pointOfView = self.sceneView.pointOfView else {return}
-        self.power = 50
-        let transform = pointOfView.transform
-        let location = SCNVector3(transform.m41, transform.m42, transform.m43)
-        let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33)
-        let position = location + orientation
-        let ball = SCNNode.init(geometry: SCNSphere(radius: 0.05))
-        ball.geometry?.firstMaterial?.diffuse.contents = UIColor.green
-        ball.geometry?.firstMaterial?.specular.contents = UIColor.yellow
-        ball.position = position
-        let body = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(node: ball))
-        body.isAffectedByGravity = false
-        ball.physicsBody = body
-        ball.physicsBody?.applyForce(SCNVector3(orientation.x*power, orientation.y*power, orientation.z*power), asImpulse: true)
-        ball.physicsBody?.categoryBitMask = BitMaskCategory.bullet.rawValue
-        ball.physicsBody?.contactTestBitMask = BitMaskCategory.target.rawValue
-        self.sceneView.scene.rootNode.addChildNode(ball)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func createPlane(planeAnchor: ARPlaneAnchor) -> SCNNode {
-        let plane = SCNBox(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z), length: 0.01, chamferRadius: 0)
-        let planeNode = SCNNode(geometry: plane)
-
-//        let planeNode = SCNNode(geometry: SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z)))
-        planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "grid")
-        planeNode.geometry?.firstMaterial?.isDoubleSided = true
-        planeNode.position = SCNVector3(planeAnchor.center.x, planeAnchor.center.y, planeAnchor.center.z)
-        planeNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(node: planeNode, options: nil))
-        planeNode.eulerAngles = SCNVector3(90.degreesToRadians, 0, 0)
-        planeNode.physicsBody?.categoryBitMask = BitMaskCategory.target.rawValue
-        planeNode.physicsBody?.contactTestBitMask =  BitMaskCategory.bullet.rawValue
-        return planeNode
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        let planeNode = createPlane(planeAnchor: planeAnchor)
-        node.addChildNode(planeNode)
-        print("new flat surface detected, new arplane anchor added")
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
-        }
-        let planeNode = createPlane(planeAnchor: planeAnchor)
-        node.addChildNode(planeNode)
-        print("updating floor's anchor")
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        guard let _ = anchor as? ARPlaneAnchor else { return }
-        node.enumerateChildNodes { (childNode, _) in
-            childNode.removeFromParentNode()
-        }
         
+        sceneManager.attach(to: sceneView)
+        
+        sceneManager.displayDegubInfo()
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
-    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        print("came into contact")
+    @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
+        switch gesture.state {
+        case .ended:
+            
+            let location = gesture.location(ofTouch: 0,
+                                            in: sceneView)
+            
+            let hit = sceneView.hitTest(location,
+                                        types: .existingPlaneUsingGeometry)
+            
+            if let hit = hit.first {
+                placeBlockOnPlaneAt(hit)
+            }
+        default:
+            print("tapped default")
+            
+        }
     }
-}
-
-
-//////
-func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
-    return SCNVector3Make(left.x + right.x, left.y + right.y, left.z + right.z)
-}
-
-extension Int {
     
-    var degreesToRadians: Double { return Double(self) * .pi/180 }
+    func placeBlockOnPlaneAt(_ hit: ARHitTestResult) {
+        let box = createBox()
+        position(node: box, atHit: hit)
+        
+        sceneView?.scene.rootNode.addChildNode(box)
+    }
+    
+    private func createBox() -> SCNNode {
+        let box = SCNBox(width: 0.15, height: 0.20, length: 0.02, chamferRadius: 0.02)
+        let boxNode = SCNNode(geometry: box)
+        boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
+        let randomSplatIndex = Int(arc4random_uniform(4))
+        boxNode.geometry?.firstMaterial?.diffuse.contents = randomSplat[randomSplatIndex]
+        return boxNode
+    }
+    
+    private func position(node: SCNNode, atHit hit: ARHitTestResult) {
+        node.transform = SCNMatrix4(hit.anchor!.transform)
+        node.eulerAngles = SCNVector3Make(node.eulerAngles.x + (Float.pi / 2), node.eulerAngles.y, node.eulerAngles.z)
+        
+        let position = SCNVector3Make(hit.worldTransform.columns.3.x + node.geometry!.boundingBox.min.z, hit.worldTransform.columns.3.y, hit.worldTransform.columns.3.z)
+        node.position = position
+    }
+    
+    @IBAction func tappedShoot(_ sender: Any) {
+        let camera = sceneView.session.currentFrame!.camera
+        let projectile = Projectile()
+        
+        // transform to location of camera
+        var translation = matrix_float4x4(projectile.transform)
+        translation.columns.3.z = -0.1
+        translation.columns.3.x = 0.03
+        
+        projectile.simdTransform = matrix_multiply(camera.transform, translation)
+        
+        let force = simd_make_float4(-1, 0, -3, 0)
+        let rotatedForce = simd_mul(camera.transform, force)
+        
+        let impulse = SCNVector3(rotatedForce.x, rotatedForce.y, rotatedForce.z)
+        
+        sceneView?.scene.rootNode.addChildNode(projectile)
+        
+        projectile.launch(inDirection: impulse)
+    }
+    
+    //    @IBAction func tappedShowPlanes(_ sender: Any) {
+    //        sceneManager.showPlanes = true
+    //    }
+    //
+    //    @IBAction func tappedHidePlanes(_ sender: Any) {
+    //        sceneManager.showPlanes = false
+    //    }
+    //
+    //    @IBAction func tappedStop(_ sender: Any) {
+    //        sceneManager.stopPlaneDetection()
+    //    }
+    //
+    //    @IBAction func tappedStart(_ sender: Any) {
+    //        sceneManager.startPlaneDetection()
+    //    }
+    
+}
 
+class Projectile: SCNNode {
+    
+    override init() {
+        super.init()
+        
+        let capsule = SCNCapsule(capRadius: 0.006, height: 0.06)
+        
+        geometry = capsule
+        
+        eulerAngles = SCNVector3(CGFloat.pi / 2, (CGFloat.pi * 0.25), 0)
+        
+        physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func launch(inDirection direction: SCNVector3) {
+        physicsBody?.applyForce(direction, asImpulse: true)
+    }
 }
 
