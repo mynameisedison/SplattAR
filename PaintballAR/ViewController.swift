@@ -19,7 +19,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     var audioPlayer = AVAudioPlayer()
 
     let sceneManager = ARSceneManager()
-    let randomSplat = [#imageLiteral(resourceName: "blue-splat-6"), #imageLiteral(resourceName: "green-splat-14"), #imageLiteral(resourceName: "pink-splat-9"), #imageLiteral(resourceName: "red-splat-1")]
+    let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)")]
+//    let audio = ["squish-1", "smash"]
+//    let randomAudio = Int(arc4random_uniform(2))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +73,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     private func createBox() -> SCNNode {
-        let box = SCNBox(width: 0.15, height: 0.20, length: 0.02, chamferRadius: 0.02)
+        let box = SCNBox(width: 0.15, height: 0.20, length: 0.002, chamferRadius: 0.02)
         let boxNode = SCNNode(geometry: box)
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))

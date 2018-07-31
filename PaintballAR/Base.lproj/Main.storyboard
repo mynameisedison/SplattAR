@@ -21,16 +21,10 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-Ph-hNE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwJ-xp-6ZY">
-                                <rect key="frame" x="163" y="382" width="49" height="49"/>
-                                <state key="normal" image="crosshairs"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3PF-ob-1lk"/>
-                            <constraint firstItem="UwJ-xp-6ZY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8jr-QN-INz"/>
-                            <constraint firstItem="UwJ-xp-6ZY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ET4-HO-lPq"/>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cRq-xq-yLw"/>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="e20-H4-ryp"/>
                             <constraint firstAttribute="bottom" secondItem="d8b-Ph-hNE" secondAttribute="bottom" id="veQ-z7-3DA"/>
@@ -47,7 +41,4 @@
             <point key="canvasLocation" x="141.59999999999999" y="124.13793103448276"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="crosshairs" width="49" height="49"/>
-    </resources>
 </document>

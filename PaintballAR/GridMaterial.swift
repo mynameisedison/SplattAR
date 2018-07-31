@@ -14,7 +14,7 @@ class GridMaterial: SCNMaterial {
     override init() {
         super.init()
         // 1
-        let image = UIImage(named: "grid")
+        let image = UIImage(named: "grid-frame")
         
         // 2
         diffuse.contents = image
