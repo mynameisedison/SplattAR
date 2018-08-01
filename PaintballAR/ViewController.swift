@@ -20,8 +20,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 
     let sceneManager = ARSceneManager()
     let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)")]
-//    let audio = ["squish-1", "smash"]
+    let audio = ["squish-1", "smash_2"]
 //    let randomAudio = Int(arc4random_uniform(2))
+//    var randomAudio: Int
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,15 +35,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
         view.addGestureRecognizer(tapGesture)
         
-        do {
-            if let fileURL = Bundle.main.path(forResource: "squish-1", ofType: "wav") {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
-            } else {
-                print("No file with specified name exists")
-            }
-        } catch let error {
-            print("Can't play the audio file failed with an error \(error.localizedDescription)")
-        }
+//        do {
+//            if let fileURL = Bundle.main.path(forResource: audio[randomAudio], ofType: "wav") {
+//                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
+//            } else {
+//                print("No file with specified name exists")
+//            }
+//        } catch let error {
+//            print("Can't play the audio file failed with an error \(error.localizedDescription)")
+//        }
     }
     
     @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
@@ -67,8 +68,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     func placeBlockOnPlaneAt(_ hit: ARHitTestResult) {
         let box = createBox()
         position(node: box, atHit: hit)
-        
         sceneView?.scene.rootNode.addChildNode(box)
+        playAudio(soundFileName: audio[Int(arc4random_uniform(2))])
+    }
+    
+    func playAudio(soundFileName: String) {
+        do {
+            if let fileURL = Bundle.main.path(forResource: soundFileName, ofType: "wav") {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
+            } else {
+                print("No file with specified name exists")
+            }
+        } catch let error {
+            print("Can't play the audio file failed with an error \(error.localizedDescription)")
+        }
         audioPlayer.play()
     }
     
