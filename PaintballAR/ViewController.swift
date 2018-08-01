@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PaintballAR
 //
-//  Created by Benjamin Broad on 7/26/18.
+//  Created by Benjamin Broad, Edison Toole, John Stevens-Webb and Ty Mondragon on 7/26/18.
 //  Copyright © 2018 g89 Group Project. All rights reserved.
 //
 
@@ -21,8 +21,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     let sceneManager = ARSceneManager()
     let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)")]
     let audio = ["squish-1", "smash_2"]
-//    let randomAudio = Int(arc4random_uniform(2))
-//    var randomAudio: Int
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,15 +34,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
         view.addGestureRecognizer(tapGesture)
         
-//        do {
-//            if let fileURL = Bundle.main.path(forResource: audio[randomAudio], ofType: "wav") {
-//                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
-//            } else {
-//                print("No file with specified name exists")
-//            }
-//        } catch let error {
-//            print("Can't play the audio file failed with an error \(error.localizedDescription)")
-//        }
     }
     
     @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
@@ -91,6 +81,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))
         boxNode.geometry?.firstMaterial?.diffuse.contents = randomSplat[randomSplatIndex]
+        boxNode.name = "box"
         return boxNode
     }
     
@@ -102,65 +93,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         node.position = position
     }
     
-    @IBAction func tappedShoot(_ sender: Any) {
-        let camera = sceneView.session.currentFrame!.camera
-        let projectile = Projectile()
-        
-        // transform to location of camera
-        var translation = matrix_float4x4(projectile.transform)
-        translation.columns.3.z = -0.1
-        translation.columns.3.x = 0.03
-        
-        projectile.simdTransform = matrix_multiply(camera.transform, translation)
-        
-        let force = simd_make_float4(-1, 0, -3, 0)
-        let rotatedForce = simd_mul(camera.transform, force)
-        
-        let impulse = SCNVector3(rotatedForce.x, rotatedForce.y, rotatedForce.z)
-        
-        sceneView?.scene.rootNode.addChildNode(projectile)
-        
-        projectile.launch(inDirection: impulse)
+   
+    @IBAction func resetPaint(_ sender: Any) {
+        self.reset()
     }
     
-    //    @IBAction func tappedShowPlanes(_ sender: Any) {
-    //        sceneManager.showPlanes = true
-    //    }
-    //
-    //    @IBAction func tappedHidePlanes(_ sender: Any) {
-    //        sceneManager.showPlanes = false
-    //    }
-    //
-    //    @IBAction func tappedStop(_ sender: Any) {
-    //        sceneManager.stopPlaneDetection()
-    //    }
-    //
-    //    @IBAction func tappedStart(_ sender: Any) {
-    //        sceneManager.startPlaneDetection()
-    //    }
+    func reset() {
+        self.sceneView.scene.rootNode.enumerateChildNodes { (boxNode, _) in
+            if boxNode.name == "box" {
+                boxNode.removeFromParentNode()
+            }
+        }
+    }
     
 }
 
-class Projectile: SCNNode {
-    
-    override init() {
-        super.init()
-        
-        let capsule = SCNCapsule(capRadius: 0.006, height: 0.06)
-        
-        geometry = capsule
-        
-        eulerAngles = SCNVector3(CGFloat.pi / 2, (CGFloat.pi * 0.25), 0)
-        
-        physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func launch(inDirection direction: SCNVector3) {
-        physicsBody?.applyForce(direction, asImpulse: true)
-    }
-}
+
 
