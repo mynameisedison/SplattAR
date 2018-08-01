@@ -20,6 +20,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 
     let sceneManager = ARSceneManager()
     let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)"),]
+    let redSplats = [#imageLiteral(resourceName: "paint-splatter-1-red"),#imageLiteral(resourceName: "paint-splatter-2-red"),#imageLiteral(resourceName: "paint-splatter-6-red"),#imageLiteral(resourceName: "paint-splatter-7-red"),#imageLiteral(resourceName: "paint-splatter-9-red"),#imageLiteral(resourceName: "paint-splatter-14-red")]
+    let greenSplats = [#imageLiteral(resourceName: "paint-splatter-1-green"),#imageLiteral(resourceName: "paint-splatter-2-green"),#imageLiteral(resourceName: "paint-splatter-6-green"),#imageLiteral(resourceName: "paint-splatter-7-green"),#imageLiteral(resourceName: "paint-splatter-9-green"),#imageLiteral(resourceName: "paint-splatter-14-green")]
+    let blueSplats = [#imageLiteral(resourceName: "paint-splatter-1-blue"),#imageLiteral(resourceName: "paint-splatter-2-blue"),#imageLiteral(resourceName: "paint-splatter-6-blue"),#imageLiteral(resourceName: "paint-splatter-7-blue"),#imageLiteral(resourceName: "paint-splatter-9-blue"),#imageLiteral(resourceName: "paint-splatter-14-blue")]
+    let yellowSplats = [#imageLiteral(resourceName: "paint-splatter-1-yellow"),#imageLiteral(resourceName: "paint-splatter-2-yellow"),#imageLiteral(resourceName: "paint-splatter-9-yellow"),#imageLiteral(resourceName: "paint-splatter-7-yellow"),#imageLiteral(resourceName: "paint-splatter-9-yellow"),#imageLiteral(resourceName: "paint-splatter-14-yellow")]
+    let cyanSplats = [#imageLiteral(resourceName: "paint-splatter-1-cyan"),#imageLiteral(resourceName: "paint-splatter-2-cyan"),#imageLiteral(resourceName: "paint-splatter-6-cyan"),#imageLiteral(resourceName: "paint-splatter-7-cyan"),#imageLiteral(resourceName: "paint-splatter-9-cyan"),#imageLiteral(resourceName: "paint-splatter-14-cyan")]
+    let pinkSplats = [#imageLiteral(resourceName: "paint-splatter-2-pink"),#imageLiteral(resourceName: "paint-splatter-6-pink"),#imageLiteral(resourceName: "paint-splatter-7-pink"),#imageLiteral(resourceName: "paint-splatter-9-pink"),#imageLiteral(resourceName: "paint-splatter-14-pink")]
+    
     let audio = ["squish-1.wav", "smash_2.wav", "wowa.mp3", "wowc.mp3", "wowb.mp3", "splat-1.wav", "splat-2.wav"]
 
     override func viewDidLoad() {
@@ -80,7 +87,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         let boxNode = SCNNode(geometry: box)
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))
-        boxNode.geometry?.firstMaterial?.diffuse.contents = randomSplat[randomSplatIndex]
+        boxNode.geometry?.firstMaterial?.diffuse.contents = redSplats[randomSplatIndex]
         boxNode.name = "box"
         return boxNode
     }
