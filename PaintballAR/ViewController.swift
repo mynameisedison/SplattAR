@@ -19,7 +19,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     var audioPlayer = AVAudioPlayer()
 
     let sceneManager = ARSceneManager()
-    let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)"),]
+    var selectedSplat = [#imageLiteral(resourceName: "red1"),#imageLiteral(resourceName: "red2"), #imageLiteral(resourceName: "red3"), #imageLiteral(resourceName: "red4"), #imageLiteral(resourceName: "red5"), #imageLiteral(resourceName: "red6")]
+    let redSplat = [#imageLiteral(resourceName: "red1"),#imageLiteral(resourceName: "red2"), #imageLiteral(resourceName: "red3"), #imageLiteral(resourceName: "red4"), #imageLiteral(resourceName: "red5"), #imageLiteral(resourceName: "red6")]
+    let greenSplat = [#imageLiteral(resourceName: "green1"), #imageLiteral(resourceName: "green2"), #imageLiteral(resourceName: "green3"), #imageLiteral(resourceName: "green4"), #imageLiteral(resourceName: "green5"), #imageLiteral(resourceName: "green6")]
+    let yellowSplat = [#imageLiteral(resourceName: "yellow1"), #imageLiteral(resourceName: "yellow2"), #imageLiteral(resourceName: "yellow3"), #imageLiteral(resourceName: "yellow4"), #imageLiteral(resourceName: "yellow5"), #imageLiteral(resourceName: "yellow6")]
+    let blueSplat = [#imageLiteral(resourceName: "blue1"), #imageLiteral(resourceName: "blue2"), #imageLiteral(resourceName: "blue3"), #imageLiteral(resourceName: "blue4"), #imageLiteral(resourceName: "blue5"), #imageLiteral(resourceName: "blue6")]
+    let pinkSplat = [#imageLiteral(resourceName: "pink1"), #imageLiteral(resourceName: "pink2"), #imageLiteral(resourceName: "pink3"), #imageLiteral(resourceName: "pink4"), #imageLiteral(resourceName: "pink5"), #imageLiteral(resourceName: "pink6")]
+    let cyanSplat = [#imageLiteral(resourceName: "cyan1"), #imageLiteral(resourceName: "cyan2"), #imageLiteral(resourceName: "cyan3"), #imageLiteral(resourceName: "cyan4"), #imageLiteral(resourceName: "cyan5"), #imageLiteral(resourceName: "cyan6")]
+    
     let audio = ["squish-1.wav", "smash_2.wav", "wowa.mp3", "wowc.mp3", "wowb.mp3", "splat-1.wav", "splat-2.wav"]
 
     override func viewDidLoad() {
@@ -76,11 +83,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     private func createBox() -> SCNNode {
-        let box = SCNBox(width: 0.15, height: 0.20, length: 0.05, chamferRadius: 0.02)
+        let box = SCNBox(width: 0.15, height: 0.20, length: 0.001, chamferRadius: 0.02)
         let boxNode = SCNNode(geometry: box)
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))
-        boxNode.geometry?.firstMaterial?.diffuse.contents = randomSplat[randomSplatIndex]
+        boxNode.geometry?.firstMaterial?.diffuse.contents = selectedSplat[randomSplatIndex]
         boxNode.name = "box"
         return boxNode
     }
@@ -105,6 +112,32 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             }
         }
         playAudio(soundFileName: "whoosh.wav")
+    }
+    
+    @IBAction func red(_ sender: Any) {
+        selectedSplat = redSplat
+    }
+    
+    @IBAction func blue(_ sender: Any) {
+        selectedSplat = blueSplat
+    }
+    
+    @IBAction func cyan(_ sender: Any) {
+        selectedSplat = cyanSplat
+    }
+    
+    
+    @IBAction func green(_ sender: Any) {
+        selectedSplat = greenSplat
+    }
+    
+   
+    @IBAction func pink(_ sender: Any) {
+        selectedSplat = pinkSplat
+    }
+    
+    @IBAction func yellow(_ sender: Any) {
+        selectedSplat = yellowSplat
     }
     
 }
