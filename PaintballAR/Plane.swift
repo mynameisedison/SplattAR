@@ -19,13 +19,11 @@ class Plane: SCNNode {
         super.init()
         
         plane.cornerRadius = 0.008
-//        plane.materials = [GridMaterial()]
-        
         
         let planeNode = SCNNode(geometry: plane)
         planeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "grid")
+        planeNode.geometry?.firstMaterial?.transparency = 0.3
         planeNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
-        // Planes in SceneKit are vertical by default so we need to rotate 90 degrees to match
         planeNode.eulerAngles.x = -.pi / 2
         
         addChildNode(planeNode)

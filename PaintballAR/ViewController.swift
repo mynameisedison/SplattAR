@@ -19,8 +19,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     var audioPlayer = AVAudioPlayer()
 
     let sceneManager = ARSceneManager()
-    let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)")]
-    let audio = ["squish-1", "smash_2"]
+    let randomSplat = [#imageLiteral(resourceName: "pink-splat-9 (1)"), #imageLiteral(resourceName: "green-splat-14 (1)"), #imageLiteral(resourceName: "blue-splat-6 (1)"), #imageLiteral(resourceName: "red-splat-1 (1)"),]
+    let audio = ["squish-1.wav", "smash_2.wav", "wowa.mp3", "wowc.mp3", "wowb.mp3", "splat-1.wav", "splat-2.wav"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         let box = createBox()
         position(node: box, atHit: hit)
         sceneView?.scene.rootNode.addChildNode(box)
-        playAudio(soundFileName: audio[Int(arc4random_uniform(2))])
+        playAudio(soundFileName: audio[Int(arc4random_uniform(6))])
     }
     
     func playAudio(soundFileName: String) {
         do {
-            if let fileURL = Bundle.main.path(forResource: soundFileName, ofType: "wav") {
+            if let fileURL = Bundle.main.path(forResource: soundFileName, ofType: nil) {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: fileURL))
             } else {
                 print("No file with specified name exists")
@@ -76,7 +76,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     private func createBox() -> SCNNode {
-        let box = SCNBox(width: 0.15, height: 0.20, length: 0.002, chamferRadius: 0.02)
+        let box = SCNBox(width: 0.15, height: 0.20, length: 0.05, chamferRadius: 0.02)
         let boxNode = SCNNode(geometry: box)
         boxNode.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: box, options: nil))
         let randomSplatIndex = Int(arc4random_uniform(4))
@@ -104,6 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
                 boxNode.removeFromParentNode()
             }
         }
+        playAudio(soundFileName: "whoosh.wav")
     }
     
 }
