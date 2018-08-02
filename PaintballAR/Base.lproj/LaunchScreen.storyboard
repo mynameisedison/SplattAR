@@ -17,20 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="paintAR" translatesAutoresizingMaskIntoConstraints="NO" id="3cp-lZ-7HC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BcR-Ei-h6H"/>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IzN-nL-ZTk"/>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NjP-Dm-UZa"/>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Vc4-Yi-6CR"/>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iqB-YK-HKJ"/>
-                            <constraint firstItem="3cp-lZ-7HC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z90-J1-Gen"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -39,7 +26,4 @@
             <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="paintAR" width="375" height="667"/>
-    </resources>
 </document>
