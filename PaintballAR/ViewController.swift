@@ -21,6 +21,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var resetButtonAttributes: UIButton!
     @IBOutlet weak var selectColorButton: UIButton!
+    //Button origin initializers
+    var redOrigin: CGPoint!
+    var blueOrigin: CGPoint!
+    var cyanOrigin: CGPoint!
+    var greenOrigin: CGPoint!
+    var pinkOrigin: CGPoint!
+    var yellowOrigin: CGPoint!
     
     @IBOutlet weak var sceneView: ARSCNView!
     
@@ -43,26 +50,45 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneManager.attach(to: sceneView)
         
         UIApplication.shared.isIdleTimerDisabled = true
-        
+        //Button rounding
         resetButtonAttributes.layer.cornerRadius = 10
-        redButton.layer.cornerRadius = 10
-        blueButton.layer.cornerRadius = 10
-        cyanButton.layer.cornerRadius = 10
-        greenButton.layer.cornerRadius = 10
-        pinkButton.layer.cornerRadius = 10
-        yellowButton.layer.cornerRadius = 10
+        redButton.layer.cornerRadius = 15
+        blueButton.layer.cornerRadius = 15
+        cyanButton.layer.cornerRadius = 15
+        greenButton.layer.cornerRadius = 15
+        pinkButton.layer.cornerRadius = 15
+        yellowButton.layer.cornerRadius = 15
+        
+        //Storing original points
+        redOrigin = redButton.center
+        blueOrigin = blueButton.center
+        cyanOrigin = cyanButton.center
+        greenOrigin = greenButton.center
+        pinkOrigin = pinkButton.center
+        yellowOrigin = yellowButton.center
+        
+        //Hiding color UI on load
+        self.redButton.translatesAutoresizingMaskIntoConstraints = true
+        redButton.center = selectColorButton.center
+        self.blueButton.translatesAutoresizingMaskIntoConstraints = true
+        blueButton.center = selectColorButton.center
+        self.cyanButton.translatesAutoresizingMaskIntoConstraints = true
+        cyanButton.center = selectColorButton.center
+        self.greenButton.translatesAutoresizingMaskIntoConstraints = true
+        greenButton.center = selectColorButton.center
+        self.pinkButton.translatesAutoresizingMaskIntoConstraints = true
+        pinkButton.center = selectColorButton.center
+        self.yellowButton.translatesAutoresizingMaskIntoConstraints = true
+        yellowButton.center = selectColorButton.center
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
         view.addGestureRecognizer(tapGesture)
+        
     }
     
     override func viewDidLayoutSubviews() {
-        redButton.center = selectColorButton.center
-        blueButton.center = selectColorButton.center
-        cyanButton.center = selectColorButton.center
-        greenButton.center = selectColorButton.center
-        pinkButton.center = selectColorButton.center
-        yellowButton.center = selectColorButton.center
+        //Hiding buttons on load
+
     }
     
     @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
@@ -164,7 +190,51 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     @IBAction func expandSelect(_ sender: UIButton) {
-        if send.currentImage == 
+        if selectColorButton.currentImage == #imageLiteral(resourceName: "arrow-up2") {
+            // expand buttons
+            UIView.animate(withDuration: 0.3, animations: {
+                self.redButton.alpha = 1
+                self.blueButton.alpha = 1
+                self.cyanButton.alpha = 1
+                self.greenButton.alpha = 1
+                self.pinkButton.alpha = 1
+                self.yellowButton.alpha = 1
+                
+                self.redButton.center = self.redOrigin
+                self.blueButton.center = self.blueOrigin
+                self.cyanButton.center = self.cyanOrigin
+                self.greenButton.center = self.greenOrigin
+                self.pinkButton.center = self.pinkOrigin
+                self.yellowButton.center = self.yellowOrigin
+                })
+        } else {
+            // contract buttons
+            UIView.animate(withDuration: 0.3, animations: {
+                self.redButton.alpha = 0
+                self.blueButton.alpha = 0
+                self.cyanButton.alpha = 0
+                self.greenButton.alpha = 0
+                self.pinkButton.alpha = 0
+                self.yellowButton.alpha = 0
+                
+                self.redButton.center = self.selectColorButton.center
+                self.blueButton.center = self.selectColorButton.center
+                self.cyanButton.center = self.selectColorButton.center
+                self.greenButton.center = self.selectColorButton.center
+                self.pinkButton.center = self.selectColorButton.center
+                self.yellowButton.center = self.selectColorButton.center
+            })
+
+        }
+        toggleButton(button: sender, onImage: #imageLiteral(resourceName: "arrow-up2"), offImage: #imageLiteral(resourceName: "arrow-down2"))
+    }
+    
+    func toggleButton(button: UIButton, onImage: UIImage, offImage: UIImage) {
+        if button.currentImage == offImage {
+            button.setImage(onImage, for: .normal)
+        } else {
+            button.setImage(offImage, for: .normal)
+        }
     }
     
     
