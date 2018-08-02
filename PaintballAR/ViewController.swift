@@ -46,7 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     let pinkSplat = [#imageLiteral(resourceName: "pink1"), #imageLiteral(resourceName: "pink2"), #imageLiteral(resourceName: "pink3"), #imageLiteral(resourceName: "pink4"), #imageLiteral(resourceName: "pink5"), #imageLiteral(resourceName: "pink6")]
     let cyanSplat = [#imageLiteral(resourceName: "cyan1"), #imageLiteral(resourceName: "cyan2"), #imageLiteral(resourceName: "cyan3"), #imageLiteral(resourceName: "cyan4"), #imageLiteral(resourceName: "cyan5"), #imageLiteral(resourceName: "cyan6")]
     
-    let audio = ["squish-1.wav", "smash_2.wav", "wowa.mp3", "wowc.mp3", "wowb.mp3", "splat-1.wav", "splat-2.wav"]
+    let audio = ["squish-1.wav", "smash_2.wav", "wowc.mp3", "splat-1.wav", "splat-2.wav"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,7 +128,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         let box = createBox()
         position(node: box, atHit: hit)
         sceneView?.scene.rootNode.addChildNode(box)
-        playAudio(soundFileName: audio[Int(arc4random_uniform(6))])
+        playAudio(soundFileName: audio[Int(arc4random_uniform(5))])
     }
     
     func playAudio(soundFileName: String) {
