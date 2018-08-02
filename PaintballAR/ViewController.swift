@@ -13,7 +13,15 @@ import AVFoundation
 
 class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
     
-
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var cyanButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var pinkButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var resetButtonAttributes: UIButton!
+    @IBOutlet weak var selectColorButton: UIButton!
+    
     @IBOutlet weak var sceneView: ARSCNView!
     
     var audioPlayer = AVAudioPlayer()
@@ -34,13 +42,27 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         sceneManager.attach(to: sceneView)
         
-        sceneManager.displayDegubInfo()
-        
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        resetButtonAttributes.layer.cornerRadius = 10
+        redButton.layer.cornerRadius = 10
+        blueButton.layer.cornerRadius = 10
+        cyanButton.layer.cornerRadius = 10
+        greenButton.layer.cornerRadius = 10
+        pinkButton.layer.cornerRadius = 10
+        yellowButton.layer.cornerRadius = 10
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapScene(_:)))
         view.addGestureRecognizer(tapGesture)
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        redButton.center = selectColorButton.center
+        blueButton.center = selectColorButton.center
+        cyanButton.center = selectColorButton.center
+        greenButton.center = selectColorButton.center
+        pinkButton.center = selectColorButton.center
+        yellowButton.center = selectColorButton.center
     }
     
     @objc func didTapScene(_ gesture: UITapGestureRecognizer) {
@@ -100,7 +122,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         node.position = position
     }
     
-   
+   // Reset paint functionality
     @IBAction func resetPaint(_ sender: Any) {
         self.reset()
     }
@@ -114,6 +136,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         playAudio(soundFileName: "whoosh.wav")
     }
     
+    // Color selection functionality
     @IBAction func red(_ sender: Any) {
         selectedSplat = redSplat
     }
@@ -139,6 +162,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBAction func yellow(_ sender: Any) {
         selectedSplat = yellowSplat
     }
+    
+    @IBAction func expandSelect(_ sender: UIButton) {
+        if send.currentImage == 
+    }
+    
     
 }
 

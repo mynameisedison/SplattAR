@@ -579,13 +579,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM4C6GP3Y5;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
 				INFOPLIST_FILE = PaintballAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DropDeadZed.PaintballAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.benjaminbroad.PaintballAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -597,13 +597,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZM4C6GP3Y5;
+				DEVELOPMENT_TEAM = 2GYQC6GXA8;
 				INFOPLIST_FILE = PaintballAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DropDeadZed.PaintballAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.benjaminbroad.PaintballAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
