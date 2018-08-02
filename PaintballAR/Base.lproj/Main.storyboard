@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-Ph-hNE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-y0-tIb">
                                 <rect key="frame" x="255" y="669" width="100" height="40"/>
                                 <color key="backgroundColor" red="0.21717908978462219" green="0.65688496828079224" blue="0.92057657241821289" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,6 +92,9 @@
                                     <action selector="blue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DQS-FW-nEx"/>
                                 </connections>
                             </button>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-Ph-hNE">
+                                <rect key="frame" x="0.0" y="-35" width="375" height="812"/>
+                            </arscnView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
