@@ -21,16 +21,10 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8b-Ph-hNE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-y0-tIb">
-                                <rect key="frame" x="255" y="669" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.21717908978462219" green="0.65688496828079224" blue="0.92057657241821289" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Bj2-SX-Yt6"/>
-                                    <constraint firstAttribute="height" constant="40" id="j7L-lB-3fL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-y0-tIb">
+                                <rect key="frame" x="311" y="659" width="44" height="50"/>
                                 <color key="tintColor" red="0.99365693330764771" green="0.98430603742599487" blue="0.97109907865524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Reset Paint">
+                                <state key="normal" image="trash2">
                                     <color key="titleColor" red="0.99992018938064575" green="1" blue="0.99989241361618042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -82,7 +76,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXo-Wk-kwW">
                                 <rect key="frame" x="20" y="659" width="50" height="50"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrow-up2"/>
+                                <state key="normal" image="arrow-up-color"/>
                                 <connections>
                                     <action selector="expandSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5vU-bT-oJQ"/>
                                 </connections>
@@ -95,6 +89,10 @@
                                     <action selector="blue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DQS-FW-nEx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-2z-kcS">
+                                <rect key="frame" x="162" y="659" width="50" height="50"/>
+                                <state key="normal" image="redsplat"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -102,8 +100,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tgQ-y0-tIb" secondAttribute="bottom" constant="20" id="3HB-nd-99c"/>
                             <constraint firstAttribute="bottom" secondItem="d8b-Ph-hNE" secondAttribute="bottom" id="5W6-hZ-QxW"/>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P0j-97-bxH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a0G-2z-kcS" secondAttribute="bottom" constant="20" id="RW6-Rb-out"/>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SQZ-SD-ylZ"/>
                             <constraint firstItem="d8b-Ph-hNE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZCQ-JV-acr"/>
+                            <constraint firstItem="a0G-2z-kcS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cYI-6n-gpQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tgQ-y0-tIb" secondAttribute="trailing" constant="20" id="jFQ-Ak-hqt"/>
                             <constraint firstItem="cXo-Wk-kwW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wbL-83-NAu"/>
                         </constraints>
@@ -112,6 +112,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="blueButton" destination="lhT-Us-47J" id="sRi-Fh-jW6"/>
+                        <outlet property="colorIndicator" destination="a0G-2z-kcS" id="VnW-JD-0hC"/>
                         <outlet property="cyanButton" destination="z6x-RQ-4Ww" id="Qn0-Rf-dCO"/>
                         <outlet property="greenButton" destination="FGn-j2-6OL" id="jPp-RL-Ghy"/>
                         <outlet property="pinkButton" destination="lgj-KR-pQc" id="Nv0-oP-9Hm"/>
@@ -128,6 +129,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow-up2" width="50" height="50"/>
+        <image name="arrow-up-color" width="50" height="50"/>
+        <image name="redsplat" width="50" height="50"/>
+        <image name="trash2" width="44" height="50"/>
     </resources>
 </document>
