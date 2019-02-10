@@ -1,4 +1,4 @@
-# SplattAR -- Quarter 3 Project -- Swift + AR
+# SplattAR -- Swift + AR
 Benjamin Broad, Ty Mondragon, Edison Toole, John Stephens-Webb
 
 # Description
